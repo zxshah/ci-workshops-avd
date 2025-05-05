@@ -1,5 +1,4 @@
 ---
-
 # Credentials for CVP and EOS Switches
 ansible_user: arista
 ansible_password: "{{ lookup('env', 'LABPASSPHRASE') }}"
@@ -14,6 +13,11 @@ ansible_httpapi_use_ssl: true
 ansible_httpapi_validate_certs: false
 ansible_python_interpreter: $(which python3)
 avd_data_validation_mode: error
+
+# arista.avd.cv_deploy role parameters
+cv_token: # Fill in here with a CloudVision Service Account Token
+cv_server: cvp
+cv_verify_certs: false
 
 # Local Users
 local_users:
