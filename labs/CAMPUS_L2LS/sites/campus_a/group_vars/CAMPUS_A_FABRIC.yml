@@ -1,9 +1,5 @@
 ---
-fabric_name: SITE1_FABRIC
-
-# Set Design Type to L2ls
-design:
-  type: l2ls
+fabric_name: CAMPUS_A_FABRIC
 
 # Repeat MLAG addressing between pairs
 fabric_ip_addressing:
@@ -20,52 +16,66 @@ l3spine:
     mlag_peer_ipv4_pool: 10.1.253.0/31
     mlag_peer_l3_ipv4_pool: 10.1.253.2/31
     virtual_router_mac_address: 00:1c:73:00:dc:01
-    mlag_interfaces: [ Ethernet1, Ethernet6 ]
+    mlag_interfaces: [ Ethernet49, Ethernet50 ]
   node_groups:
-    - group: SPINES
+    - group: CAMPUS_A_SPINES
       nodes:
-        - name: s1-spine1
+        - name: spine-1
           id: 1
           mgmt_ip: 192.168.0.10/24
-        - name: s1-spine2
+        - name: spine-2
           id: 2
           mgmt_ip: 192.168.0.11/24
 
 # Leaf Switches
-leaf:
+l2leaf:
   defaults:
     platform: cEOS
     mlag_peer_ipv4_pool: 10.1.253.0/31
     spanning_tree_mode: mstp
     spanning_tree_priority: 16384
-    uplink_switches: [ s1-spine1, s1-spine2 ]
-    uplink_interfaces: [ Ethernet2, Ethernet3 ]
-    mlag_interfaces: [ Ethernet1, Ethernet6 ]
+    uplink_switches: [ spine-1, spine-2 ]
+    uplink_interfaces: [ Ethernet49, Ethernet50 ]
+    mlag_interfaces: [ Ethernet47, Ethernet48 ]
   node_groups:
-    - group: RACK1
+    - group: IDF1
       filter:
-        tags: [ "Web" ]
+        tags: [ "110", "120" ]
       nodes:
-        - name: s1-leaf1
+        - name: leaf-1a
           id: 1
           mgmt_ip: 192.168.0.12/24
-          uplink_switch_interfaces: [ Ethernet2, Ethernet2 ]
-        - name: s1-leaf2
+          uplink_interfaces: [ Ethernet49 ]
+          uplink_switches: [ spine-1 ]
+          uplink_switch_interfaces: [ Ethernet3 ]
+        - name: leaf-1b
           id: 2
           mgmt_ip: 192.168.0.13/24
-          uplink_switch_interfaces: [ Ethernet3, Ethernet3 ]
-    - group: RACK2
+          uplink_interfaces: [ Ethernet49 ]
+          uplink_switches: [ spine-2 ]
+          uplink_switch_interfaces: [ Ethernet3 ]
+    - group: IDF2
       filter:
-        tags: [ "App" ]
+        tags: [ "210", "220" ]
+      mlag: false
       nodes:
-        - name: s1-leaf3
+        - name: leaf-2a
           id: 3
           mgmt_ip: 192.168.0.14/24
+          uplink_interfaces: [ Ethernet1/1, Ethernet2/1 ]
           uplink_switch_interfaces: [ Ethernet4, Ethernet4 ]
-        - name: s1-leaf4
+    - group: IDF3
+      filter:
+        tags: [ "310", "320" ]
+      nodes:
+        - name: leaf-3a
           id: 4
-          mgmt_ip: 192.168.0.15/24
+          mgmt_ip:
           uplink_switch_interfaces: [ Ethernet5, Ethernet5 ]
+        - name: leaf-3b
+          id: 5
+          mgmt_ip: 
+          uplink_switch_interfaces: [ Ethernet6, Ethernet6 ]
 
 ##################################################################
 # Underlay Routing Protocol - ran on Spines
