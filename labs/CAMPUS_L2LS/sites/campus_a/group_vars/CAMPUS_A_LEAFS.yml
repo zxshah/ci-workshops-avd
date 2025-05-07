@@ -6,10 +6,8 @@ generate_cv_tags:
     - name: Access-Pod
       data_path: mlag_configuration.domain_id
     - name: Campus-Pod
-      value: H5
+      value: Campus A
     - name: Campus
       value: Cleveland
     - name: Role
       value: Leaf
-    - name: Network-Type
-      value: Campus

@@ -40,7 +40,7 @@ l2leaf:
   node_groups:
     - group: IDF1
       filter:
-        tags: [ "110", "120" ]
+        tags: [ "IDF1_DATA", "IDF1_VOICE" ]
       nodes:
         - name: leaf-1a
           id: 1
@@ -56,7 +56,7 @@ l2leaf:
           uplink_switch_interfaces: [ Ethernet3 ]
     - group: IDF2
       filter:
-        tags: [ "210", "220" ]
+        tags: [ "IDF2_DATA", "IDF2_VOICE" ]
       mlag: false
       nodes:
         - name: leaf-2a
@@ -66,7 +66,7 @@ l2leaf:
           uplink_switch_interfaces: [ Ethernet4, Ethernet4 ]
     - group: IDF3
       filter:
-        tags: [ "310", "320" ]
+        tags: [ "IDF3_DATA", "IDF3_VOICE" ]
       nodes:
         - name: leaf-3a
           id: 4
@@ -76,6 +76,36 @@ l2leaf:
           id: 5
           mgmt_ip: 
           uplink_switch_interfaces: [ Ethernet6, Ethernet6 ]
+    - group: IDF3_3C
+      filter:
+        tags: [ "IDF3_DATA", "IDF3_VOICE" ]
+      mlag: false
+      nodes:
+        - name: member-leaf-3c
+          id: 6
+          mgmt_ip:
+          uplink_switches: [ leaf-3a, leaf-3b ]
+          uplink_switch_interfaces: [ Ethernet51, Ethernet51 ]
+    - group: IDF3_3D
+      filter:
+        tags: [ "IDF3_DATA", "IDF3_VOICE" ]
+      mlag: false
+      nodes:
+        - name: member-leaf-3d
+          id: 7
+          mgmt_ip:
+          uplink_switches: [ leaf-3a, leaf-3b ]
+          uplink_switch_interfaces: [ Ethernet52, Ethernet52 ]
+    - group: IDF3_3E
+      filter:
+        tags: [ "IDF3_DATA", "IDF3_VOICE" ]
+      mlag: false
+      nodes:
+        - name: member-leaf-3c
+          id: 8
+          mgmt_ip:
+          uplink_switches: [ leaf-3a, leaf-3b ]
+          uplink_switch_interfaces: [ Ethernet53/1, Ethernet53/1 ]
 
 ##################################################################
 # Underlay Routing Protocol - ran on Spines
