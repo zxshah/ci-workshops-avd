@@ -22,10 +22,10 @@ l3spine:
       nodes:
         - name: spine-1
           id: 1
-          mgmt_ip: 192.168.0.10/24
+          mgmt_ip: 192.168.0.12/24
         - name: spine-2
           id: 2
-          mgmt_ip: 192.168.0.11/24
+          mgmt_ip: 192.168.0.13/24
 
 # Leaf Switches
 l2leaf:
@@ -44,13 +44,13 @@ l2leaf:
       nodes:
         - name: leaf-1a
           id: 1
-          mgmt_ip: 192.168.0.12/24
+          mgmt_ip: 192.168.0.14/24
           uplink_interfaces: [ Ethernet49 ]
           uplink_switches: [ spine-1 ]
           uplink_switch_interfaces: [ Ethernet3 ]
         - name: leaf-1b
           id: 2
-          mgmt_ip: 192.168.0.13/24
+          mgmt_ip: 192.168.0.15/24
           uplink_interfaces: [ Ethernet49 ]
           uplink_switches: [ spine-2 ]
           uplink_switch_interfaces: [ Ethernet3 ]
@@ -61,7 +61,7 @@ l2leaf:
       nodes:
         - name: leaf-2a
           id: 3
-          mgmt_ip: 192.168.0.14/24
+          mgmt_ip: 192.168.0.16/24
           uplink_interfaces: [ Ethernet1/1, Ethernet2/1 ]
           uplink_switch_interfaces: [ Ethernet4, Ethernet4 ]
     - group: IDF3
@@ -70,11 +70,11 @@ l2leaf:
       nodes:
         - name: leaf-3a
           id: 4
-          mgmt_ip:
+          mgmt_ip: 192.168.0.17/24
           uplink_switch_interfaces: [ Ethernet5, Ethernet5 ]
         - name: leaf-3b
           id: 5
-          mgmt_ip: 
+          mgmt_ip: 192.168.0.18/24
           uplink_switch_interfaces: [ Ethernet6, Ethernet6 ]
     - group: IDF3_3C
       filter:
@@ -83,7 +83,7 @@ l2leaf:
       nodes:
         - name: member-leaf-3c
           id: 6
-          mgmt_ip:
+          mgmt_ip: 192.168.0.19/24
           uplink_switches: [ leaf-3a, leaf-3b ]
           uplink_switch_interfaces: [ Ethernet51, Ethernet51 ]
     - group: IDF3_3D
@@ -93,7 +93,7 @@ l2leaf:
       nodes:
         - name: member-leaf-3d
           id: 7
-          mgmt_ip:
+          mgmt_ip: 192.168.0.20/24
           uplink_switches: [ leaf-3a, leaf-3b ]
           uplink_switch_interfaces: [ Ethernet52, Ethernet52 ]
     - group: IDF3_3E
@@ -103,7 +103,7 @@ l2leaf:
       nodes:
         - name: member-leaf-3c
           id: 8
-          mgmt_ip:
+          mgmt_ip: 192.168.0.21/24
           uplink_switches: [ leaf-3a, leaf-3b ]
           uplink_switch_interfaces: [ Ethernet53/1, Ethernet53/1 ]
 
