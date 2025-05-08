@@ -32,7 +32,7 @@ validate-campus-a: ## Validate network state
 ########################################################
 
 .PHONY: preplab
-preplab: ## Deploy Configs via eAPI
+preplab: ## Deploy Preparation Configs via eAPI
 	ansible-playbook playbooks/preplab.yml -i extra_configs/inventory.yml -e "target_hosts=LAB"
 
 ########################################################
