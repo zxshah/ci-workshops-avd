@@ -7,23 +7,23 @@ help: ## Display help message
 ########################################################
 
 .PHONY: ping-campus-a
-ping-site-1: ## Ping Nodes
+ping-campus-a: ## Ping Nodes
 	ansible-playbook playbooks/ping.yml -i sites/campus_a/inventory.yml -e "target_hosts=CAMPUS_A_FABRIC"
 
 .PHONY: build-campus-a
-build-site-1: ## Build Configs
+build-campus-a: ## Build Configs
 	ansible-playbook playbooks/build.yml -i sites/campus_a/inventory.yml -e "target_hosts=CAMPUS_A_FABRIC"
 
 .PHONY: deploy-campus-a
-deploy-site-1: ## Deploy Configs via eAPI
+deploy-campus-a: ## Deploy Configs via eAPI
 	ansible-playbook playbooks/deploy.yml -i sites/campus_a/inventory.yml -e "target_hosts=CAMPUS_A_FABRIC"
 
 .PHONY: cvp-campus-a
-cvp-site-1: ## Deploy Configs via CloudVision Static Configuration Studio
+cvp-campus-a: ## Deploy Configs via CloudVision Static Configuration Studio
 	ansible-playbook playbooks/cvp.yml -i sites/campus_a/inventory.yml -e "target_hosts=CAMPUS_A_FABRIC"
 
 .PHONY: validate-campus-a
-validate-site-1: ## Validate network state
+validate-campus-a: ## Validate network state
 	ansible-playbook playbooks/validate.yml -i sites/campus_a/inventory.yml -e "target_hosts=CAMPUS_A_FABRIC"
 
 
