@@ -16,7 +16,7 @@ l3spine:
     mlag_peer_ipv4_pool: 10.1.253.0/31
     mlag_peer_l3_ipv4_pool: 10.1.253.2/31
     virtual_router_mac_address: 00:1c:73:00:dc:01
-    mlag_interfaces: [ Ethernet49, Ethernet50 ]
+    mlag_interfaces: [ Ethernet49/1, Ethernet50/1 ]
   node_groups:
     - group: CAMPUS_A_SPINES
       nodes:
