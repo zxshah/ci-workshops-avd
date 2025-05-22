@@ -101,7 +101,7 @@ l2leaf:
         tags: [ "IDF3_DATA", "IDF3_VOICE" ]
       mlag: false
       nodes:
-        - name: member-leaf-3c
+        - name: member-leaf-3e
           id: 8
           mgmt_ip: 192.168.0.21/24
           uplink_switches: [ leaf-3a, leaf-3b ]
