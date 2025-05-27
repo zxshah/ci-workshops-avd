@@ -14,13 +14,13 @@ ping-campus-a: ## Ping Nodes
 build-campus-a: ## Build Configs
 	ansible-playbook playbooks/build.yml -i sites/campus_a/inventory.yml -e "target_hosts=CAMPUS_A_FABRIC"
 
-.PHONY: deploy-campus-a
+.PHONY: eapi-campus-a
 deploy-campus-a: ## Deploy Configs via eAPI
-	ansible-playbook playbooks/deploy.yml -i sites/campus_a/inventory.yml -e "target_hosts=CAMPUS_A_FABRIC"
+	ansible-playbook playbooks/eapi.yml -i sites/campus_a/inventory.yml -e "target_hosts=CAMPUS_A_FABRIC"
 
-.PHONY: cvp-campus-a
+.PHONY: deploy-campus-a
 cvp-campus-a: ## Deploy Configs via CloudVision Static Configuration Studio
-	ansible-playbook playbooks/cvp.yml -i sites/campus_a/inventory.yml -e "target_hosts=CAMPUS_A_FABRIC"
+	ansible-playbook playbooks/deploy.yml -i sites/campus_a/inventory.yml -e "target_hosts=CAMPUS_A_FABRIC"
 
 .PHONY: validate-campus-a
 validate-campus-a: ## Validate network state
