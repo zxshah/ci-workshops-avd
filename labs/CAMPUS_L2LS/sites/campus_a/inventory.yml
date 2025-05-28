@@ -27,7 +27,3 @@ CAMPUS_A:
       children:
         CAMPUS_A_SPINES:
         CAMPUS_A_LEAFS:
-    CAMPUS_A_CONNECTED_ENDPOINTS:
-      children:
-        CAMPUS_A_SPINES:
-        CAMPUS_A_LEAFS:
