@@ -2,7 +2,7 @@
 generate_cv_tags:
   device_tags:
     - name: Access-Pod
-      # value: IDF2
+      value: IDF2
     - name: Campus-Pod
       value: Campus A
     - name: Campus
